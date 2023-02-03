@@ -17,6 +17,9 @@ var (
 	Aex    = NewScalarParam("Aex", "J/m", "Exchange stiffness", &lex2)
 	Dind   = NewScalarParam("Dind", "J/m2", "Interfacial Dzyaloshinskii-Moriya strength", &din2)
 	Dbulk  = NewScalarParam("Dbulk", "J/m2", "Bulk Dzyaloshinskii-Moriya strength", &dbulk2)
+	A = NewScalarParam("A", "J/m", " exchange constant", &lexA)
+	Br = NewScalarParam("Br", "Jm", " exchange constant", &lexBr)
+	C = NewScalarParam("C", "Jm", " exchange constant", &lexC)
 	lex2   exchParam // inter-cell Aex
 	din2   exchParam // inter-cell Dind
 	dbulk2 exchParam // inter-cell Dbulk
