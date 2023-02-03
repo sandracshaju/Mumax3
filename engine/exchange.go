@@ -20,6 +20,9 @@ var (
 	A = NewScalarParam("A", "J/m", " exchange constant", &lexA)
 	Br = NewScalarParam("Br", "Jm", " exchange constant", &lexBr)
 	C = NewScalarParam("C", "Jm", " exchange constant", &lexC)
+	lexA exchParam
+	lexBr exchParam
+	lexC exchParam
 	lex2   exchParam // inter-cell Aex
 	din2   exchParam // inter-cell Dind
 	dbulk2 exchParam // inter-cell Dbulk
@@ -53,19 +56,28 @@ func init() {
 func AddExchangeField(dst *data.Slice) {
 	inter := !Dind.isZero()
 	bulk := !Dbulk.isZero()
+	hasA := !A.isZero()
+	hasBr := !Br.isZero()
+	hasC := !C.isZero()
 	ms := Msat.MSlice()
 	defer ms.Recycle()
 	switch {
-	case !inter && !bulk:
+
+	case !inter && !bulk && !hasA && !hasBr && !hasC:
 		cuda.AddExchange(dst, M.Buffer(), lex2.Gpu(), ms, regions.Gpu(), M.Mesh())
-	case inter && !bulk:
+	case inter && !bulk && !hasA && !hasBr && !hasC:
 		Refer("mulkers2017")
 		cuda.AddDMI(dst, M.Buffer(), lex2.Gpu(), din2.Gpu(), ms, regions.Gpu(), M.Mesh(), OpenBC) // dmi+exchange
-	case bulk && !inter:
+	case bulk && !inter && !hasA && !hasBr && !hasC:
 		cuda.AddDMIBulk(dst, M.Buffer(), lex2.Gpu(), dbulk2.Gpu(), ms, regions.Gpu(), M.Mesh(), OpenBC) // dmi+exchange
 		// TODO: add ScaleInterDbulk and InterDbulk
 	case inter && bulk:
 		util.Fatal("Cannot have interfacial-induced DMI and bulk DMI at the same time")
+	case hasA && hasBr && hasC: 
+		cuda.AddExchangeFourthOrder(dst, M.Buffer(), lexA.Gpu(), lexBr.Gpu(), lexC.Gpu(), ms, regions.Gpu(), M.Mesh())
+	default:
+		util.Fatal("Needs to have Either Aex or A,Br,C, DMI cannot be with A,Br,C, also can only have one type of DMI)
+		
 	}
 }
 
