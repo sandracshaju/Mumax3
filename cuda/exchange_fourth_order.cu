@@ -10,7 +10,7 @@ extern "C" __global__ void
 addexchangefourthorder(float* __restrict__ Bx, float* __restrict__ By, float* __restrict__ Bz,
             float* __restrict__ mx, float* __restrict__ my, float* __restrict__ mz,
             float* __restrict__ Ms_, float Ms_mul,
-            float* __restrict__ I1, float* __restrict__ I2,
+            float* __restrict__ A, float* __restrict__ Br, float* __restrict__ C,
             uint8_t* __restrict__ regions,
             float cx, float cy, float cz, int Nx, int Ny, int Nz, uint8_t PBC) {
 
