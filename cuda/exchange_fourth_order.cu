@@ -47,7 +47,7 @@ addexchangefourthorder(float* __restrict__ Bx, float* __restrict__ By, float* __
     i_    = idx(ix, iy, iz);
     m_    = make_float3(mx[i_], my[i_], mz[i_]);                                    // load m
     m_    = ( is0(m_)? m0: m_ );                                                    // replace missing non-boundary neighbor
-    A__   = A[symidx(r0, regions[i_])];;
+    A__   = A[symidx(r0, regions[i_])];
     Br__  = Br[symidx(r0, regions[i_])];
     C__   = C[symidx(r0, regions[i_])];
     B    -= 4 * A__ * (1/(cx*cx) + 1/(cy*cy) + 1/(cz*cz)) * m_;
@@ -65,7 +65,7 @@ addexchangefourthorder(float* __restrict__ Bx, float* __restrict__ By, float* __
     i_    = idx(lclampx(ix-1), iy, iz);                                             // clamps or wraps index according to PBC
     m_    = make_float3(mx[i_], my[i_], mz[i_]);                                    // load m
     m_    = ( is0(m_)? m0: m_ );                                                    // replace missing non-boundary neighbor
-    A__   = A[symidx(r0, regions[i_])];;
+    A__   = A[symidx(r0, regions[i_])];
     Br__  = Br[symidx(r0, regions[i_])];
     C__   = C[symidx(r0, regions[i_])];
     B    -= 8 * C__ * (1/(cx*cx*cy*cy) + 1/(cx*cx*cz*cz)) *m_;;
@@ -75,7 +75,7 @@ addexchangefourthorder(float* __restrict__ Bx, float* __restrict__ By, float* __
     i_    = idx(hclampx(ix+1), iy, iz);                                             // clamps or wraps index according to PBC
     m_    = make_float3(mx[i_], my[i_], mz[i_]);                                    // load m
     m_    = ( is0(m_)? m0: m_ );                                                    // replace missing non-boundary neighbor
-    A__   = A[symidx(r0, regions[i_])];;
+    A__   = A[symidx(r0, regions[i_])];
     Br__  = Br[symidx(r0, regions[i_])];
     C__   = C[symidx(r0, regions[i_])];
     B    -= 8 * C__ * (1/(cx*cx*cy*cy) + 1/(cx*cx*cz*cz)) *m_;;
@@ -85,7 +85,7 @@ addexchangefourthorder(float* __restrict__ Bx, float* __restrict__ By, float* __
     i_    = idx(ix, lclampy(iy-1), iz);                                             // clamps or wraps index according to PBC
     m_    = make_float3(mx[i_], my[i_], mz[i_]);                                    // load m
     m_    = ( is0(m_)? m0: m_ );                                                    // replace missing non-boundary neighbor
-    A__   = A[symidx(r0, regions[i_])];;
+    A__   = A[symidx(r0, regions[i_])];
     Br__  = Br[symidx(r0, regions[i_])];
     C__   = C[symidx(r0, regions[i_])];
     B    -= 8 * C__ * (1/(cy*cy*cx*cx) + 1/(cy*cy*cz*cz)) *m_;;
@@ -95,7 +95,7 @@ addexchangefourthorder(float* __restrict__ Bx, float* __restrict__ By, float* __
     i_    = idx(ix, hclampy(iy+1), iz);                                             // clamps or wraps index according to PBC
     m_    = make_float3(mx[i_], my[i_], mz[i_]);                                    // load m
     m_    = ( is0(m_)? m0: m_ );                                                    // replace missing non-boundary neighbor
-    A__   = A[symidx(r0, regions[i_])];;
+    A__   = A[symidx(r0, regions[i_])];
     Br__  = Br[symidx(r0, regions[i_])];
     C__   = C[symidx(r0, regions[i_])];
     B    -= 8 * C__ * (1/(cy*cy*cx*cx) + 1/(cy*cy*cz*cz)) *m_;;
@@ -105,7 +105,7 @@ addexchangefourthorder(float* __restrict__ Bx, float* __restrict__ By, float* __
     i_    = idx(ix, iy, lclampz(iz-1));                                             // clamps or wraps index according to PBC
     m_    = make_float3(mx[i_], my[i_], mz[i_]);                                    // load m
     m_    = ( is0(m_)? m0: m_ );                                                    // replace missing non-boundary neighbor
-    A__   = A[symidx(r0, regions[i_])];;
+    A__   = A[symidx(r0, regions[i_])];
     Br__  = Br[symidx(r0, regions[i_])];
     C__   = C[symidx(r0, regions[i_])];
     B    -= 8 * C__ * (1/(cz*cz*cx*cx) + 1/(cz*cz*cy*cy)) *m_;;
@@ -115,7 +115,7 @@ addexchangefourthorder(float* __restrict__ Bx, float* __restrict__ By, float* __
     i_    = idx(ix, iy, hclampz(iz+1));                                             // clamps or wraps index according to PBC
     m_    = make_float3(mx[i_], my[i_], mz[i_]);                                    // load m
     m_    = ( is0(m_)? m0: m_ );                                                    // replace missing non-boundary neighbor
-    A__   = A[symidx(r0, regions[i_])];;
+    A__   = A[symidx(r0, regions[i_])];
     Br__  = Br[symidx(r0, regions[i_])];
     C__   = C[symidx(r0, regions[i_])];
     B    -= 8 * C__ * (1/(cz*cz*cx*cx) + 1/(cz*cz*cy*cy)) *m_;;
@@ -130,7 +130,7 @@ addexchangefourthorder(float* __restrict__ Bx, float* __restrict__ By, float* __
     i_    = idx(lclampx(ix-1), lclampy(iy-1), iz);  // clamps or wraps index according to PBC
     m_    = make_float3(mx[i_], my[i_], mz[i_]);    // load m
     m_    = ( is0(m_)? m0: m_ );                    // replace missing non-boundary neighbor
-    A__   = A[symidx(r0, regions[i_])];;
+    A__   = A[symidx(r0, regions[i_])];
     Br__  = Br[symidx(r0, regions[i_])];
     C__   = C[symidx(r0, regions[i_])];
     B    -= (2 * C__ * (1 / (cx*cx*cy*cy)) * m_;
@@ -141,7 +141,7 @@ addexchangefourthorder(float* __restrict__ Bx, float* __restrict__ By, float* __
     i_    = idx(lclampx(ix-1), hclampy(iy+1), iz);  // clamps or wraps index according to PBC
     m_    = make_float3(mx[i_], my[i_], mz[i_]);    // load m
     m_    = ( is0(m_)? m0: m_ );                    // replace missing non-boundary neighbor
-    A__   = A[symidx(r0, regions[i_])];;
+    A__   = A[symidx(r0, regions[i_])];
     Br__  = Br[symidx(r0, regions[i_])];
     C__   = C[symidx(r0, regions[i_])];
     B    -= (2 * C__ * (1 / (cx*cx*cy*cy)) * m_;
@@ -151,7 +151,7 @@ addexchangefourthorder(float* __restrict__ Bx, float* __restrict__ By, float* __
     i_    = idx(hclampx(ix+1), lclampy(iy-1), iz);  // clamps or wraps index according to PBC
     m_    = make_float3(mx[i_], my[i_], mz[i_]);    // load m
     m_    = ( is0(m_)? m0: m_ );                    // replace missing non-boundary neighbor
-    A__   = A[symidx(r0, regions[i_])];;
+    A__   = A[symidx(r0, regions[i_])];
     Br__  = Br[symidx(r0, regions[i_])];
     C__   = C[symidx(r0, regions[i_])];
     B    -= (2 * C__ * (1 / (cx*cx*cy*cy)) * m_;
@@ -161,7 +161,7 @@ addexchangefourthorder(float* __restrict__ Bx, float* __restrict__ By, float* __
     i_    = idx(hclampx(ix+1), hclampy(iy+1), iz);  // clamps or wraps index according to PBC
     m_    = make_float3(mx[i_], my[i_], mz[i_]);    // load m
     m_    = ( is0(m_)? m0: m_ );                    // replace missing non-boundary neighbor
-    A__   = A[symidx(r0, regions[i_])];;
+    A__   = A[symidx(r0, regions[i_])];
     Br__  = Br[symidx(r0, regions[i_])];
     C__   = C[symidx(r0, regions[i_])];
     B    -= (2 * C__ * (1 / (cx*cx*cy*cy)) * m_;
@@ -176,7 +176,7 @@ addexchangefourthorder(float* __restrict__ Bx, float* __restrict__ By, float* __
     i_    = idx(ix, lclampy(iy-1), hclampz(iz+1));  // clamps or wraps index according to PBC
     m_    = make_float3(mx[i_], my[i_], mz[i_]);    // load m
     m_    = ( is0(m_)? m0: m_ );                    // replace missing non-boundary neighbor
-    A__   = A[symidx(r0, regions[i_])];;
+    A__   = A[symidx(r0, regions[i_])];
     Br__  = Br[symidx(r0, regions[i_])];
     C__   = C[symidx(r0, regions[i_])];
     B    -= (2 * C__ * (1 / (cy*cy*cz*cz)) * m_;
@@ -186,7 +186,7 @@ addexchangefourthorder(float* __restrict__ Bx, float* __restrict__ By, float* __
     i_    = idx(ix, hclampy(iy+1), hclampz(iz+1));  // clamps or wraps index according to PBC
     m_    = make_float3(mx[i_], my[i_], mz[i_]);    // load m
     m_    = ( is0(m_)? m0: m_ );                    // replace missing non-boundary neighbor
-    A__   = A[symidx(r0, regions[i_])];;
+    A__   = A[symidx(r0, regions[i_])];
     Br__  = Br[symidx(r0, regions[i_])];
     C__   = C[symidx(r0, regions[i_])];
     B    -= (2 * C__ * (1 / (cy*cy*cz*cz)) * m_;
@@ -196,7 +196,7 @@ addexchangefourthorder(float* __restrict__ Bx, float* __restrict__ By, float* __
     i_    = idx(ix, lclampy(iy-1), lclampz(iz-1));  // clamps or wraps index according to PBC
     m_    = make_float3(mx[i_], my[i_], mz[i_]);    // load m
     m_    = ( is0(m_)? m0: m_ );                    // replace missing non-boundary neighbor
-    A__   = A[symidx(r0, regions[i_])];;
+    A__   = A[symidx(r0, regions[i_])];
     Br__  = Br[symidx(r0, regions[i_])];
     C__   = C[symidx(r0, regions[i_])];
     B    -= (2 * C__ * (1 / (cy*cy*cz*cz)) * m_;
@@ -206,7 +206,7 @@ addexchangefourthorder(float* __restrict__ Bx, float* __restrict__ By, float* __
     i_    = idx(ix, hclampy(iy+1), lclampz(iz-1));  // clamps or wraps index according to PBC
     m_    = make_float3(mx[i_], my[i_], mz[i_]);    // load m
     m_    = ( is0(m_)? m0: m_ );                    // replace missing non-boundary neighbor
-    A__   = A[symidx(r0, regions[i_])];;
+    A__   = A[symidx(r0, regions[i_])];
     Br__  = Br[symidx(r0, regions[i_])];
     C__   = C[symidx(r0, regions[i_])];
     B    -= (2 * C__ * (1 / (cy*cy*cz*cz)) * m_;
@@ -221,7 +221,7 @@ addexchangefourthorder(float* __restrict__ Bx, float* __restrict__ By, float* __
     i_    = idx(lclampx(ix-1), iy, hclampz(iz+1));  // clamps or wraps index according to PBC
     m_    = make_float3(mx[i_], my[i_], mz[i_]);    // load m
     m_    = ( is0(m_)? m0: m_ );                    // replace missing non-boundary neighbor
-    A__   = A[symidx(r0, regions[i_])];;
+    A__   = A[symidx(r0, regions[i_])];
     Br__  = Br[symidx(r0, regions[i_])];
     C__   = C[symidx(r0, regions[i_])];
     B    -= (2 * C__ * (1 / (cx*cx*cz*cz)) * m_;
@@ -230,7 +230,7 @@ addexchangefourthorder(float* __restrict__ Bx, float* __restrict__ By, float* __
     i_    = idx(lclampx(ix-1), iy, lclampz(iz-1));  // clamps or wraps index according to PBC
     m_    = make_float3(mx[i_], my[i_], mz[i_]);    // load m
     m_    = ( is0(m_)? m0: m_ );                    // replace missing non-boundary neighbor
-    A__   = A[symidx(r0, regions[i_])];;
+    A__   = A[symidx(r0, regions[i_])];
     Br__  = Br[symidx(r0, regions[i_])];
     C__   = C[symidx(r0, regions[i_])];
     B    -= (2 * C__ * (1 / (cx*cx*cz*cz)) * m_;
@@ -240,7 +240,7 @@ addexchangefourthorder(float* __restrict__ Bx, float* __restrict__ By, float* __
     i_    = idx(hclampx(ix+1), iy, hclampz(iz+1));  // clamps or wraps index according to PBC
     m_    = make_float3(mx[i_], my[i_], mz[i_]);    // load m
     m_    = ( is0(m_)? m0: m_ );                    // replace missing non-boundary neighbor
-    A__   = A[symidx(r0, regions[i_])];;
+    A__   = A[symidx(r0, regions[i_])];
     Br__  = Br[symidx(r0, regions[i_])];
     C__   = C[symidx(r0, regions[i_])];
     B    -= (2 * C__ * (1 / (cx*cx*cz*cz)) * m_;
@@ -249,7 +249,7 @@ addexchangefourthorder(float* __restrict__ Bx, float* __restrict__ By, float* __
     i_    = idx(hclampx(ix+1), iy, lclampz(iz-1));  // clamps or wraps index according to PBC
     m_    = make_float3(mx[i_], my[i_], mz[i_]);    // load m
     m_    = ( is0(m_)? m0: m_ );                    // replace missing non-boundary neighbor
-    A__   = A[symidx(r0, regions[i_])];;
+    A__   = A[symidx(r0, regions[i_])];
     Br__  = Br[symidx(r0, regions[i_])];
     C__   = C[symidx(r0, regions[i_])];
     B    -= (2 * C__ * (1 / (cx*cx*cz*cz)) * m_;
@@ -264,7 +264,7 @@ addexchangefourthorder(float* __restrict__ Bx, float* __restrict__ By, float* __
     i_    = idx(lclampx(ix-2), iy, iz);           // clamps or wraps index according to PBC
     m_    = make_float3(mx[i_], my[i_], mz[i_]);  // load m
     m_    = ( is0(m_)? m0: m_ );                  // replace missing non-boundary neighbor
-    A__   = A[symidx(r0, regions[i_])];;
+    A__   = A[symidx(r0, regions[i_])];
     Br__  = Br[symidx(r0, regions[i_])];
     C__   = C[symidx(r0, regions[i_])];
     B    -= (2 * Br__ / (cx*cx*cx*cx)) * m_;
@@ -273,7 +273,7 @@ addexchangefourthorder(float* __restrict__ Bx, float* __restrict__ By, float* __
     i_    = idx(hclampx(ix+2), iy, iz);           // clamps or wraps index according to PBC
     m_    = make_float3(mx[i_], my[i_], mz[i_]);  // load m
     m_    = ( is0(m_)? m0: m_ );                  // replace missing non-boundary neighbor
-    A__   = A[symidx(r0, regions[i_])];;
+    A__   = A[symidx(r0, regions[i_])];
     Br__  = Br[symidx(r0, regions[i_])];
     C__   = C[symidx(r0, regions[i_])];
     B    -= (2 * Br__ / (cx*cx*cx*cx)) * m_;
@@ -282,7 +282,7 @@ addexchangefourthorder(float* __restrict__ Bx, float* __restrict__ By, float* __
     i_    = idx(ix, lclampy(iy-2), iz);           // clamps or wraps index according to PBC
     m_    = make_float3(mx[i_], my[i_], mz[i_]);  // load m
     m_    = ( is0(m_)? m0: m_ );                  // replace missing non-boundary neighbor
-    A__   = A[symidx(r0, regions[i_])];;
+    A__   = A[symidx(r0, regions[i_])];
     Br__  = Br[symidx(r0, regions[i_])];
     C__   = C[symidx(r0, regions[i_])];
     B    -= (2 * Br__ / (cy*cy*cy*cy)) * m_;
@@ -291,7 +291,7 @@ addexchangefourthorder(float* __restrict__ Bx, float* __restrict__ By, float* __
     i_    = idx(ix, hclampy(iy+2), iz);           // clamps or wraps index according to PBC
     m_    = make_float3(mx[i_], my[i_], mz[i_]);  // load m
     m_    = ( is0(m_)? m0: m_ );                  // replace missing non-boundary neighbor
-    A__   = A[symidx(r0, regions[i_])];;
+    A__   = A[symidx(r0, regions[i_])];
     Br__  = Br[symidx(r0, regions[i_])];
     C__   = C[symidx(r0, regions[i_])];
     B    -= (2 * Br__ / (cy*cy*cy*cy)) * m_;
@@ -300,7 +300,7 @@ addexchangefourthorder(float* __restrict__ Bx, float* __restrict__ By, float* __
     i_    = idx(ix, iy, lclampz(iz-2));           // clamps or wraps index according to PBC
     m_    = make_float3(mx[i_], my[i_], mz[i_]);  // load m
     m_    = ( is0(m_)? m0: m_ );                  // replace missing non-boundary neighbor
-    A__   = A[symidx(r0, regions[i_])];;
+    A__   = A[symidx(r0, regions[i_])];
     Br__  = Br[symidx(r0, regions[i_])];
     C__   = C[symidx(r0, regions[i_])];
     B    -= (2 * Br__ / (cz*cz*cz*cz)) * m_;
@@ -309,7 +309,7 @@ addexchangefourthorder(float* __restrict__ Bx, float* __restrict__ By, float* __
     i_    = idx(ix, iy, hclampz(iz+2));           // clamps or wraps index according to PBC
     m_    = make_float3(mx[i_], my[i_], mz[i_]);  // load m
     m_    = ( is0(m_)? m0: m_ );                  // replace missing non-boundary neighbor
-    A__   = A[symidx(r0, regions[i_])];;
+    A__   = A[symidx(r0, regions[i_])];
     Br__  = Br[symidx(r0, regions[i_])];
     C__   = C[symidx(r0, regions[i_])];
     B    -= (2 * Br__ / (cz*cz*cz*cz)) * m_;
