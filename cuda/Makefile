@@ -30,7 +30,7 @@ else
 	NVCC=${CUDA_HOME}/bin/nvcc 
 endif
 
-# When CUDA_CC is not an environment variable and is not set on the command line, use compute capability 3.0
+# When CUDA_CC is not an environment variable and is not set on the command line, use compute capability 3.5
 ifeq ($(CUDA_CC),)
 #    CUDA_CC = 30
 # The "compute_30" was for the Kepler architecture, which has been deprecated in CUDA 11.

@@ -50,6 +50,9 @@ func init() {
 	lex2.init(Aex)
 	din2.init(Dind)
 	dbulk2.init(Dbulk)
+	lexA.init(A)
+	lexBr.init(Br)
+	lexC.init(C)
 }
 
 // Adds the current exchange field to dst
@@ -76,7 +79,7 @@ func AddExchangeField(dst *data.Slice) {
 	case hasA && hasBr && hasC: 
 		cuda.AddExchangeFourthOrder(dst, M.Buffer(), lexA.Gpu(), lexBr.Gpu(), lexC.Gpu(), ms, regions.Gpu(), M.Mesh())
 	default:
-		util.Fatal("Needs to have Either Aex or A,Br,C, DMI cannot be with A,Br,C, also can only have one type of DMI)
+		util.Fatal("Needs to have Either Aex or A,Br,C, DMI cannot be with A,Br,C, also can only have one type of DMI")
 		
 	}
 }

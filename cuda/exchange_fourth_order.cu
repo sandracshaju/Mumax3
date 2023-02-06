@@ -109,7 +109,7 @@ addexchangefourthorder(float* __restrict__ Bx, float* __restrict__ By, float* __
     Br__  = Br[symidx(r0, regions[i_])];
     C__   = C[symidx(r0, regions[i_])];
     B    -= 8 * C__ * (1/(cz*cz*cx*cx) + 1/(cz*cz*cy*cy)) *m_;;
-    B    += 2 * A__ / (cz*cz) * m_ + 8 * Br__ / (cz*cz*cz*cz) * m_ + 4 * C__ * (1/(cz*cz*cx*cx) + 1/(cz*cz*cy*cy)) * m_;_;
+    B    += 2 * A__ / (cz*cz) * m_ + 8 * Br__ / (cz*cz*cz*cz) * m_ + 4 * C__ * (1/(cz*cz*cx*cx) + 1/(cz*cz*cy*cy)) * m_;
 
     // Top neighbour
     i_    = idx(ix, iy, hclampz(iz+1));                                             // clamps or wraps index according to PBC
@@ -119,7 +119,7 @@ addexchangefourthorder(float* __restrict__ Bx, float* __restrict__ By, float* __
     Br__  = Br[symidx(r0, regions[i_])];
     C__   = C[symidx(r0, regions[i_])];
     B    -= 8 * C__ * (1/(cz*cz*cx*cx) + 1/(cz*cz*cy*cy)) *m_;;
-    B    += 2 * A__ / (cz*cz) * m_ + 8 * Br__ / (cz*cz*cz*cz) * m_ + 4 * C__ * (1/(cz*cz*cx*cx) + 1/(cz*cz*cy*cy)) * m_;_;
+    B    += 2 * A__ / (cz*cz) * m_ + 8 * Br__ / (cz*cz*cz*cz) * m_ + 4 * C__ * (1/(cz*cz*cx*cx) + 1/(cz*cz*cy*cy)) * m_;
 
 
     //////////////////////////////////////////////
