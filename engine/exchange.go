@@ -76,7 +76,7 @@ func AddExchangeField(dst *data.Slice) {
 		// TODO: add ScaleInterDbulk and InterDbulk
 	case inter && bulk:
 		util.Fatal("Cannot have interfacial-induced DMI and bulk DMI at the same time")
-	case hasA && hasBr && hasC: 
+	case hasA || hasBr || hasC: 
 		cuda.AddExchangeFourthOrder(dst, M.Buffer(), lexA.Gpu(), lexBr.Gpu(), lexC.Gpu(), ms, regions.Gpu(), M.Mesh())
 	default:
 		util.Fatal("Needs to have Either Aex or A,Br,C, DMI cannot be with A,Br,C, also can only have one type of DMI")
